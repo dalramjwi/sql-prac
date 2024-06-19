@@ -7,6 +7,8 @@ const mainTable = () => {
     }
     console.log(data);
   });
+  const createCheck = dbCheck;
+  console.log(createCheck);
   const createDB = (tableName) => {
     //같이 할 때는 run, 다시 할 때는 prepare 무슨 의미인지 조사해보자
     db.run(
