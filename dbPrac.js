@@ -23,7 +23,12 @@ const mainTable = () => {
     );
   };
   const insertDB = (obj) => {
-    const { name, age, address, idealType, mbti } = obj;
+    const { id, name, age, address, idealType, mbti } = obj;
+    const insert = db.prepare("INSERT INTO prac (id, name) VALUES (?,?)");
+    insert.run(id, name);
   };
+};
+let obj = {
+  id: 1,
 };
 mainTable();
