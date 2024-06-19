@@ -1,5 +1,13 @@
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./database/prac.db");
+
+// 외래 키 제약 조건 활성화
+db.run("PRAGMA foreign_keys = ON", (err) => {
+  if (err) {
+    console.error("Error enabling foreign keys:", err.message);
+  }
+});
+
 const mainTable = () => {
   const dbCheck = db.all(
     "SELECT name FROM sqlite_master WHERE type='table' AND name='prac'",
@@ -63,7 +71,7 @@ const mainTable = () => {
     address: "tree",
   };
   let obj2 = {
-    id: 3,
+    id: 1,
     name: "old",
     address: "bed",
   };
