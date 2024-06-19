@@ -50,11 +50,23 @@ const mainTable = () => {
     );
     insert.run(id, name, address);
   };
+  const insertDBNew = (obj) => {
+    const { id, name, address } = obj;
+    const insert = db.prepare(
+      "INSERT INTO new (id, name, address) VALUES (?,?,?)"
+    );
+    insert.run(id, name, address);
+  };
   let obj = {
     id: 1,
     name: "dal",
     address: "tree",
   };
-  // insertDB(obj);
+  let obj2 = {
+    id: 2,
+    name: "new",
+    address: "home",
+  };
+  insertDB(obj2);
 };
 mainTable();
