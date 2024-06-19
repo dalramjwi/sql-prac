@@ -2,6 +2,9 @@ const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./database/prac.db");
 const mainTable = () => {
   const dbCheck = db.all("SELECT * FROM prac", (err, data) => {
+    if (err) {
+      console.log(err);
+    }
     console.log(data);
   });
   const createDB = (tableName) => {
