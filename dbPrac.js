@@ -30,7 +30,7 @@ const mainTable = () => {
 };
 let obj = {
   id: 1,
-  name: dal,
+  name: "dal",
   age: 51,
 };
 insertDB(obj);
