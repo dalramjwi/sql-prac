@@ -18,3 +18,4 @@ sqlite3.all("SELECT * FROM zootopia", (err, rows) => {
 const deletedb = sqlite3.prepare("DELETE FROM zootopia WHERE name = ?");
 deletedb.run("김달");
 deletedb.finalize();
+sqlite3.close();
