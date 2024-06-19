@@ -22,6 +22,8 @@ const mainTable = () => {
       `CREATE TABLE ${tableName}(id integer, name text not null,address text not null)`
     );
   };
-  // createDB("prac");
+  const insertDB = (obj) => {
+    const { name, age, address, idealType, mbti } = obj;
+  };
 };
 mainTable();
