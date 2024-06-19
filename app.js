@@ -12,6 +12,9 @@ sqlite3.all("SELECT * FROM zootopia", (err, rows) => {
     console.log(`${rows.id} : ${rows.name}`);
   });
 });
-const update = sqlite3.prepare("UPDATE zootopia SET name =? WHERE id =?");
-update.run("김달", "1");
-update.finalize();
+// const update = sqlite3.prepare("UPDATE zootopia SET name =? WHERE id =?");
+// update.run("김달", "1");
+// update.finalize();
+const deletedb = sqlite3.prepare("DELETE FROM zootopia WHERE name = ?");
+deletedb.run("김달");
+deletedb.finalize();
