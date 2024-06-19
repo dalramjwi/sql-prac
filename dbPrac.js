@@ -16,10 +16,31 @@ const mainTable = () => {
       }
     }
   );
+  const dbCheckNew = db.all(
+    "SELECT name FROM sqlite_master WHERE type='table' AND name='new'",
+    (err, data) => {
+      if (err) {
+        console.log(err);
+      }
+      console.log(data);
+      if (data.length > 0) {
+        console.log("이미 존재함");
+      } else {
+        console.log("존재하지 않음");
+        createDBNew("new");
+      }
+    }
+  );
   const createDB = (tableName) => {
     //같이 할 때는 run, 다시 할 때는 prepare 무슨 의미인지 조사해보자
     db.run(
       `CREATE TABLE ${tableName}(id integer, name text not null,address text not null)`
+    );
+  };
+  const createDBNew = (tableName) => {
+    //같이 할 때는 run, 다시 할 때는 prepare 무슨 의미인지 조사해보자
+    db.run(
+      `CREATE TABLE ${tableName}(id integer, name text not null,address text not null,FOREIGN KEY(id) REFERENCES prac(id))`
     );
   };
   const insertDB = (obj) => {
@@ -34,6 +55,6 @@ const mainTable = () => {
     name: "dal",
     address: "tree",
   };
-  insertDB(obj);
+  // insertDB(obj);
 };
 mainTable();
