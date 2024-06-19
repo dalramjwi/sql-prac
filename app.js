@@ -4,7 +4,7 @@ const sqlite3 = new db.Database("./database/prac.db");
 const insert = sqlite3.prepare("INSERT INTO zootopia (id, name) VALUES (?,?)");
 insert.run("1", "김보미");
 insert.finalize();
-db.all("SELECT * FROM zootopia", (err, rows) => {
+sqlite3.all("SELECT * FROM zootopia", (err, rows) => {
   if (err) {
     console.log(err);
   }
