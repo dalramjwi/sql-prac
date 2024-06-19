@@ -63,10 +63,10 @@ const mainTable = () => {
     address: "tree",
   };
   let obj2 = {
-    id: 2,
-    name: "new",
-    address: "home",
+    id: 3,
+    name: "old",
+    address: "bed",
   };
-  insertDB(obj2);
+  insertDBNew(obj2);
 };
 mainTable();
